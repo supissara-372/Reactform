@@ -13,10 +13,7 @@ export default function MemberList({ members, onEdit, onDelete }: Props) {
   return (
     <ul className="space-y-4">
       {members.map((m, idx) => (
-        <li
-          key={idx}
-          className="p-4 border rounded-lg shadow-sm bg-gray-50 flex gap-4 items-start"
-        >
+        <li key={idx} className="p-4 border rounded-lg shadow-sm bg-gray-50 flex gap-4 items-start">
           {/* รูปสมาชิก */}
           <div className="flex-shrink-0">
             {m.photo && m.photo[0] ? (
