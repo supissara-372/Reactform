@@ -22,27 +22,33 @@ export default function App() {
   const handleDelete = (index: number) => setMembers(members.filter((_, i) => i !== index));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 flex justify-center items-center p-8">
-  <div className="flex flex-col md:flex-row gap-8 max-w-6xl w-full">
-    {/* ฟอร์ม */}
-    <div className="bg-white shadow-lg rounded-xl p-6 flex-1">
-      <MemberForm
-        onSubmit={handleAddOrUpdate}
-        defaultValues={editingIndex !== null ? members[editingIndex] : undefined}
-        editingIndex={editingIndex}
-      />
-    </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 flex flex-col items-center p-8">
+      
+      {/* หัวข้ออยู่บนสุด นอกกรอบ */}
+      <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+        ทำเนียบรายชื่อสมาชิกสภาผู้แทนราษฎร
+      </h1>
 
-    {/* รายชื่อสมาชิก */}
-    <div className="bg-white shadow-lg rounded-xl p-6 flex-1">
-      <MemberList
-        members={members}
-        onEdit={handleEdit}
-        onDelete={handleDelete}
-      />
-    </div>
-  </div>
-</div>
+      {/* กรอบฟอร์มและรายชื่อสมาชิก */}
+      <div className="flex flex-col md:flex-row gap-8 max-w-6xl w-full">
+        {/* ฟอร์ม */}
+        <div className="bg-white shadow-lg rounded-xl p-6 flex-1">
+          <MemberForm
+            onSubmit={handleAddOrUpdate}
+            defaultValues={editingIndex !== null ? members[editingIndex] : undefined}
+            editingIndex={editingIndex}
+          />
+        </div>
 
+        {/* รายชื่อสมาชิก */}
+        <div className="bg-white shadow-lg rounded-xl p-6 flex-1">
+          <MemberList
+            members={members}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          />
+        </div>
+      </div>
+    </div>
   );
 }
